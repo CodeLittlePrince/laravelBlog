@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name')->unique();
             $table->integer('level');
             $table->string('avatar');
-            $table->timestamps('created_at');
+            $table->timestamps('');
         });
     }
 
