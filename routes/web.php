@@ -11,7 +11,9 @@
 |
 */
 
+// Simply Controll Pages display
 Route::get('/about', 'PagesController@getAbout');
 Route::get('/contact', 'PagesController@getContact');
 Route::get('/', 'PagesController@getIndex');
+// Controll Page Dada Interact
 Route::resource('posts', 'postsController');

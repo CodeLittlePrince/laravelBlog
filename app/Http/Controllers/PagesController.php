@@ -14,17 +14,17 @@ class PagesController extends Controller
         $data = [];
         $data['age'] = $age;
         $data['hobby'] = $hobby;
-        return view('pages/about')->with('data', $data);
+        return view('pages.about')->with('data', $data);
     }
     public function getContact()
     {
         $data = [];
         $data['name'] = 'Tom Jackson';
         $data['description'] = 'I am a hardworking and positive dog!';
-        return view('pages/contact')->with('data', $data);
+        return view('pages.contact')->with('data', $data);
     }
     public function getIndex()
     {
-        return view('pages/welcome');
+        return view('pages.welcome');
     }
 }

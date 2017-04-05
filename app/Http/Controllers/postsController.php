@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\posts;
 
 class postsController extends Controller
 {
@@ -23,7 +24,7 @@ class postsController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -34,7 +35,22 @@ class postsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validate the data
+        $this->validate($request, array(
+            'uid' => 'required|digits_between:1,11',
+            'title' => 'required|max:50',
+            'desc' => 'required|max:100',
+            'content' => 'required',
+        ));
+        // store in the database
+        $post = new Posts;
+        $post->uid = $request->uid;
+        $post->title = $request->title;
+        $post->desc = $request->desc;
+        $post->content = $request->content;
+        $post->save();
+        // redirect to another page
+        return redirect()->route('posts.show', $post->id);
     }
 
     /**
