@@ -23,7 +23,7 @@
 				<div class="form-group">
 					<input class="btn btn-success form-control" type="submit" value="submit">
 				</div>
-				<input type="hidden" name="id" value="1">
+				<input type="hidden" name="uid" value="1">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			</form>
 		</div>

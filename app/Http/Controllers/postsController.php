@@ -36,6 +36,7 @@ class postsController extends Controller
     public function store(Request $request)
     {
         // validate the data
+        // if validate failed, the page would refresh
         $this->validate($request, array(
             'uid' => 'required|digits_between:1,11',
             'title' => 'required|max:50',
