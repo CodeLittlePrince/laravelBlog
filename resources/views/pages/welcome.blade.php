@@ -21,7 +21,7 @@
     </p>
   </div>
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-xs-8">
       <div>
         <h2>Title</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -56,7 +56,7 @@
       <a href="#"><button class="btn btn-primary">Read more</button></a>
       <hr/>
     </div>
-    <div class="col-md-3 col-md-offset-1">
+    <div class="col-xs-3 col-xs-offset-1">
       <h3>This is aside</h3>
       
     </div>
