@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title', '| posts index')
+@section('title', '| post index')
 
 @section('content')
   <div class="row">
@@ -8,7 +8,7 @@
       <h2>博客列表</h2>
     </div>
     <div class="col-xs-2 col-xs-offset-6">
-      <a class="btn btn-success btn-block" href="/posts/create">写文章</a>
+      <a class="btn btn-success btn-block" href="/post/create">写文章</a>
     </div>
   </div>
   <table class="table table-striped">
@@ -29,8 +29,8 @@
           <td>{{ $post->created_at->format('Y年n月j日') }}</td>
           <td>{{ $post->updated_at->format('Y年n月j日') }}</td>
           <td>
-            <a href="/posts/{{ $post->id }}" class="btn btn-info btn-sm">查看</a>
-            <a href="/posts/{{ $post->id }}/edit" class="btn btn-primary btn-sm">编辑</a>
+            <a href="/post/{{ $post->id }}" class="btn btn-info btn-sm">查看</a>
+            <a href="/post/{{ $post->id }}/edit" class="btn btn-primary btn-sm">编辑</a>
           </td>
         </tr>
       @endforeach
