@@ -17,3 +17,6 @@ Route::get('/contact', 'PagesController@getContact');
 Route::get('/', 'PagesController@getIndex');
 // Controll Page Dada Interact
 Route::resource('posts', 'postsController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
