@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use App\posts;
+use App\Post;
 use Session;
 
-class postsController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class postsController extends Controller
      */
     public function index()
     {
-        $posts = Posts::paginate(5);
+        $posts = Post::paginate(5);
         foreach ($posts as $post) {
             // 当标题长度大于15，则截取
             // if (strlen($post->title) > 15) {
@@ -36,7 +36,7 @@ class postsController extends Controller
             // $post->updated_time = date('Y年n月j日', strtotime($post->updated_at));
             // $post->created_at = $post->created_at->format('Y年n月j日');
         }
-        return view('posts.index')->with('posts', $posts);
+        return view('post.index')->with('posts', $posts);
     }
 
     /**
@@ -46,7 +46,7 @@ class postsController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view('post.create');
     }
 
     /**
@@ -66,7 +66,7 @@ class postsController extends Controller
             'content' => 'required',
         ));
         // store in the database
-        $post = new Posts();
+        $post = new Post();
         $post->uid = $request->uid;
         $post->title = $request->title;
         $post->desc = $request->desc;
@@ -75,7 +75,7 @@ class postsController extends Controller
         // test session
         Session::Flash('success', '文章发布成功');
         // redirect to another page
-        return redirect()->route('posts.show', $post->id);
+        return redirect()->route('post.show', $post->id);
     }
 
     /**
@@ -86,8 +86,8 @@ class postsController extends Controller
      */
     public function show($id)
     {
-        $post = Posts::find($id);
-        return view('posts.show')->with('post', $post);
+        $post = Post::find($id);
+        return view('post.show')->with('post', $post);
     }
 
     /**
@@ -98,8 +98,8 @@ class postsController extends Controller
      */
     public function edit($id)
     {
-        $post = Posts::find($id);
-        return view('posts.create')
+        $post = Post::find($id);
+        return view('post.create')
             ->with('post', $post)
             ->with('isEdit', true);
     }
@@ -121,7 +121,7 @@ class postsController extends Controller
             'content' => 'required',
         ));
         //store the date to database
-        $post = Posts::find($id);
+        $post = Post::find($id);
         $post->uid = $request->uid;
         $post->title = $request->title;
         $post->desc = $request->desc;
@@ -130,7 +130,7 @@ class postsController extends Controller
         //set flash session
         Session::Flash('success', '文章更新成功');
         //redirect with session
-        return redirect()->route('posts.show', $id);
+        return redirect()->route('post.show', $id);
     }
 
     /**
@@ -141,9 +141,9 @@ class postsController extends Controller
      */
     public function destroy($id)
     {
-        $post = Posts::find($id);
+        $post = Post::find($id);
         $post->delete();
         Session::Flash('success', '删除成功');
-        return redirect()->route('posts.index');
+        return redirect()->route('post.index');
     }
 }

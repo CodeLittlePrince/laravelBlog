@@ -9,10 +9,10 @@
 			<hr/>
 			{{-- 编辑&发布公用 --}}
 			@if (isset($isEdit))
-				<form method="post" action="/posts/{{ $post->id }}">
+				<form method="post" action="/post/{{ $post->id }}">
 				<input name="_method" type="hidden" value="PUT">
 			@else
-				<form method="post" action="/posts">
+				<form method="post" action="/post">
 			@endif
 				<div class="form-group">
 					<label for="title">title</label>

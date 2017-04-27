@@ -17,7 +17,7 @@
         <li class="active"><a href="/">主页</a></li>
         <li><a href="/about">关于我</a></li>
         <li><a href="/contact">联系我</a></li>
-        <li><a href="/posts">我的文章</a></li>
+        <li><a href="/post">我的文章</a></li>
       </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">

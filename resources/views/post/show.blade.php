@@ -24,10 +24,10 @@
   			<hr>
   			<div class="row">
   				<div class="col-xs-6">
-  					<a class="btn btn-primary btn-block" href="/posts/{{ $post->id }}/edit">编辑</a>
+  					<a class="btn btn-primary btn-block" href="/post/{{ $post->id }}/edit">编辑</a>
   				</div>
   				<div class="col-xs-6">
-  					<form method="post" action="/posts/{{ $post->id }}">
+  					<form method="post" action="/post/{{ $post->id }}">
               <input type="hidden" name="_method" value="DELETE">
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
   						<input class="btn btn-danger btn-block" type="submit" value="删除">
