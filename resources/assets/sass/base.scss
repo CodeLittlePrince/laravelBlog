@@ -1,6 +1,10 @@
 body {
 	background-color: #f6f6f6;
 }
+pre {
+	padding: 0;
+	border: none;
+}
 .logo-m {
 	width: 30px;
 	height: 30px;
@@ -71,21 +75,40 @@ body {
 		}
 		.content {
 			font-size: 16px;
-		    line-height: 1.8;
+		    line-height: 1.5;
+		    padding-left: 20px;
+		    padding-right: 20px;
+		}
+
+		.badge {
+			background-color: #2db2ea;
 		}
 		.badge:nth-child(1) {
-			background-color: #468847;
+			background-color: #d9534f;
 		}
-		.badge:nth-child(2) {
-			background-color: #3a87ad;
-		}
-		.badge:nth-child(3) {
-			background-color: #2db2ea;
+		blockquote {
+			border-left: 5px solid #2ab27b;
+			padding-left: 20px;
+			margin: 15px 0;
+			color: #959595;
+			padding-top: 0;
+			padding-bottom: 0;
 		}
 	}
 	&-aside {
 		padding: 15px;
 		box-sizing: border-box;
+	}
+}
+.card-index {
+	&-article {
+		.content {
+			max-height: 255px;
+			overflow: hidden;
+		}
+		.readMore {
+			padding-top: 20px;
+		}
 	}
 }
 
@@ -95,4 +118,16 @@ body {
 			white-space: pre-wrap;
 		}
 	}
+}
+.editor-style blockquote,.simditor .simditor-body blockquote {
+    border-left: 5px solid #2ab27b;
+    padding-left: 20px;
+    margin: 15px 0;
+    color: #959595;
+    padding-top: 0;
+    padding-bottom: 0;
+    p {
+    	line-height: 1.5;
+    	color: #959595;
+    }
 }

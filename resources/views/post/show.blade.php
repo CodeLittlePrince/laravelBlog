@@ -19,7 +19,7 @@
           </div>
           <h2 class="title">{{ $post->title }}</h2>
           <h3 class="desc">{{ $post->desc }}</h3>
-          <p class="content">{{ $post->content }}</p>
+          <div class="content">{!! $post->content !!}</div>
         </div>
       </div>
   	</div>

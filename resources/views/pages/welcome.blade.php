@@ -25,9 +25,13 @@
             </div>
             <h2 class="title">{{ $article->title }}</h2>
             <h3 class="desc">{{ $article->desc }}</h3>
-            <p class="content">{{ $article->content }}</p>
+            <div class="content _box">{!! $article->content !!}</div>
           </div>
-          <a href="/post/{{ $article->id }}" target="_blank"><button class="btn btn-info">阅读全文</button></a>
+          <div class="readMore">
+            <a href="/post/{{ $article->id }}" target="_blank">
+              <button class="btn btn-info">阅读全文</button>
+            </a>
+          </div>
         </div>
       @endforeach
       <div class="text-center">

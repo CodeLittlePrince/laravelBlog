@@ -27,7 +27,7 @@ class PagesController extends Controller
     }
     public function getIndex()
     {
-        $articles = Post::paginate(5);
+        $articles = Post::orderBy('updated_at', 'desc')->paginate(5);
         foreach ($articles as $article) {
             // ======== 上面是原生，laravel其实提供了辅助方法 =========
             $article->content = str_limit($article->content, 300, '...');
