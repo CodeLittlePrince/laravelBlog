@@ -5,7 +5,7 @@
 @section('content')
 	<div class="row">
 		<div class="col-xs-8 col-xs-offset-2">
-			<h2 class="text-center">Create Posts</h2>
+			<h2 class="text-center">创建文章</h2>
 			<hr/>
 			{{-- 编辑&发布公用 --}}
 			@if (isset($isEdit))
@@ -15,15 +15,15 @@
 				<form method="post" action="/post">
 			@endif
 				<div class="form-group">
-					<label for="title">title</label>
+					<label for="title">标题</label>
 					<input id="title" class="form-control" type="text" name="title" maxlength="50" value="{{ $post->title or '' }}">
 				</div>
 				<div class="form-group">
-					<label for="desc">description</label>
+					<label for="desc">描述</label>
 					<input id="desc" class="form-control" type="text" name="desc" maxlength="100" value="{{ $post->desc or '' }}">
 				</div>
 				<div class="form-group">
-					<label for="content">content</label>
+					<label for="content">内容</label>
 					<textarea id="content" class="form-control" name="content" placeholder="input article content here">{{ $post->content or '' }}</textarea>
 				</div>
 				<div class="form-group">
@@ -33,7 +33,7 @@
 						<input class="btn btn-success form-control" type="submit" value="发布">
 					@endif
 				</div>
-				<input type="hidden" name="uid" value="1">
+				<input type="hidden" name="uid" value="{{ Auth::user()->id }}">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			</form>
 		</div>

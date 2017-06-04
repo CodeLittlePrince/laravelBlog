@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
+  <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -8,36 +8,66 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Brand</a>
+      <a class="navbar-brand" href="/">
+        骡子窝
+      </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/">主页</a></li>
-        <li><a href="/about">关于我</a></li>
-        <li><a href="/contact">联系我</a></li>
-        <li><a href="/post">我的文章</a></li>
-      </ul>
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="输入关键词...">
-        </div>
-        <button type="submit" class="btn btn-default">搜索文章</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="/login">登录</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Terry <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
+        <li @if (isset($pageType) && $pageType == 'index') class="active" @endif>
+          <a href="/">主页</a>
+        </li>
+        <li @if (isset($pageType) && $pageType == 'about') class="active" @endif>
+          <a href="/about">关于我</a>
+        </li>
+        <li @if (isset($pageType) && $pageType == 'contact') class="active" @endif>
+          <a href="/contact">联系我</a>
         </li>
       </ul>
+      <div class="collapse navbar-collapse" id="app-navbar-collapse">
+          <!-- Left Side Of Navbar -->
+          <ul class="nav navbar-nav">
+              &nbsp;
+          </ul>
+
+          <!-- Right Side Of Navbar -->
+          <ul class="nav navbar-nav navbar-right">
+              <!-- Authentication Links -->
+              @if (Auth::guest())
+                  <li><a href="{{ route('login') }}">登录</a></li>
+                  <li><a href="{{ route('register') }}">注册</a></li>
+              @else
+                  <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                          {{ Auth::user()->name }} <span class="caret"></span>
+                      </a>
+
+                      <ul class="dropdown-menu" role="menu">
+                          <li>
+                              <a href="/post/create">发布文章</a>
+                          </li>
+                          <li>
+                              <a href="/post">我的文章</a>
+                          </li>
+                          <li role="separator" class="divider"></li>
+                          <li>
+                              <a href="{{ route('logout') }}"
+                                  onclick="event.preventDefault();
+                                           document.getElementById('logout-form').submit();">
+                                  登出
+                              </a>
+
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                  {{ csrf_field() }}
+                              </form>
+                          </li>
+                      </ul>
+                  </li>
+              @endif
+          </ul>
+      </div>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
