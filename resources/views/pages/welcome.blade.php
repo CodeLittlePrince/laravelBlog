@@ -29,7 +29,7 @@
           </div>
           <div class="readMore">
             <a href="/post/{{ $article->id }}" target="_blank">
-              <button class="btn btn-info">阅读全文</button>
+              <button class="btn btn-primary">阅读全文</button>
             </a>
           </div>
         </div>
