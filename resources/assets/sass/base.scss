@@ -95,10 +95,6 @@ pre {
 			padding-bottom: 0;
 		}
 	}
-	&-aside {
-		padding: 15px;
-		box-sizing: border-box;
-	}
 }
 .card-index {
 	&-article {
@@ -111,13 +107,17 @@ pre {
 		}
 	}
 }
-
 .card-detail {
 	&-article {
 		.content {
 			white-space: pre-wrap;
 		}
 	}
+}
+.card-aside {
+	padding: 15px;
+	box-sizing: border-box;
+	margin-bottom: 20px;
 }
 .editor-style blockquote,.simditor .simditor-body blockquote {
     border-left: 5px solid #2ab27b;

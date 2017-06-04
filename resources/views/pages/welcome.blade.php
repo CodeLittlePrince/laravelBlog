@@ -39,11 +39,7 @@
       </div>
     </div>
     <div class="col-xs-3">
-      <div class="_box card-index-aside">
-        <form>
-          <input type="text" class="form-control" placeholder="输入关键词搜索...">
-        </form>
-      </div>
+      @include('pages/partials/_cardAside')
     </div>
   </div>
 @endsection
