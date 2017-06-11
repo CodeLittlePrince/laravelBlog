@@ -24,7 +24,7 @@
       </div>
   	</div>
   	<div class="col-xs-3">
-  		<div class="well">
+  		<div class="well _box">
   			<div class="row">
   				<div class="col-xs-6">
   					<a class="btn btn-primary btn-block" href="/post/{{ $post->id }}/edit">编辑</a>

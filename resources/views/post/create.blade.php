@@ -32,9 +32,9 @@
 				</div>
 				<div class="form-group">
 					@if (isset($isEdit))
-						<input class="btn btn-info form-control" type="submit" value="保存修改">
+						<input class="btn btn-primary form-control" type="submit" value="保存修改">
 					@else
-						<input class="btn btn-info form-control" type="submit" value="发布">
+						<input class="btn btn-primary form-control" type="submit" value="发布">
 					@endif
 				</div>
 				<input type="hidden" name="uid" value="{{ Auth::user()->id }}">
