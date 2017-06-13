@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Post;
+use Auth;
 use Session;
 
 class PostController extends Controller
@@ -91,7 +92,8 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        return view('post.show')->with('post', $post);
+        $isAuthor = $post->uid == Auth::id() ? true : false;
+        return view('post.show')->with('post', $post)->with('isAuthor', $isAuthor);
     }
 
     /**

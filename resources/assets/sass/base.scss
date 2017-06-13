@@ -7,6 +7,7 @@ pre {
 }
 .badge {
 	background-color: #009999;
+	cursor: pointer;
 	&:hover {
 		background-color: #00caca;
 	}
@@ -95,6 +96,9 @@ pre {
 		}
 		.badge:nth-child(1) {
 			background-color: #3097D1;
+			&:hover {
+				background-color: #2db2ea;
+			}
 		}
 		blockquote {
 			border-left: 5px solid #2ab27b;
