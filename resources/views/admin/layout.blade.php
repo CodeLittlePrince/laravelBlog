@@ -6,8 +6,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Gentelella Alela! | </title>
+
+    <!-- Scripts -->
+    <script>
+        window.Laravel = {!! json_encode([
+            'csrfToken' => csrf_token(),
+        ]) !!};
+    </script>
 
     <!-- Bootstrap -->
     <link href="{{ asset('vendors/gentelella/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -35,7 +44,7 @@
             <div class="col-md-3 left_col">
               <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
-                  <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+                  <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>骡子窝</span></a>
                 </div>
 
                 <div class="clearfix"></div>
@@ -46,8 +55,8 @@
                     <img src="http://or1edgicq.bkt.clouddn.com/fate.png?imageView2/1/w/100/h/100" alt="..." class="img-circle profile_img">
                   </div>
                   <div class="profile_info">
-                    <span>Welcome,</span>
-                    <h2>John Doe</h2>
+                    <span>恭候!</span>
+                    <h2>骡子大人</h2>
                   </div>
                 </div>
                 <!-- /menu profile quick info -->
@@ -188,7 +197,7 @@
                   <ul class="nav navbar-nav navbar-right">
                     <li class="">
                       <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                        <img src="http://or1edgicq.bkt.clouddn.com/fate.png?imageView2/1/w/100/h/100" alt="">John Doe
+                        <img src="http://or1edgicq.bkt.clouddn.com/fate.png?imageView2/1/w/100/h/100" alt="">骡子大人
                         <span class=" fa fa-angle-down"></span>
                       </a>
                       <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -320,6 +329,8 @@
 
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('vendors/gentelella/build/js/custom.min.js') }}"></script>
+
+    @yield('scripts')
 	
   </body>
 </html>
