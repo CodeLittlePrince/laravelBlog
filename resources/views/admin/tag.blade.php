@@ -10,10 +10,10 @@
         <div class="row">
             <form>
               <div class="col-md-9 col-sm-9 col-xs-9">
-                <input class="form-control" type="text" name="tag" placeholder="Input tag name you wanna search">
+                <input class="form-control" type="text" name="keywords" placeholder="Input tag name you wanna search">
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3">
-                <div class="btn btn-success btn-block">Search</div>
+                <input class="btn btn-success btn-block" value="Search" />
               </div>
             </form>
         </div>
@@ -21,10 +21,17 @@
         <div class="row">
             <form>
               <div class="col-md-9 col-sm-9 col-xs-9">
-                <input class="form-control" type="text" name="tag" placeholder="Input tag name you wanna create">
+                <input class="form-control" type="text" name="tagname" placeholder="Input tag name you wanna create">
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3">
-                <div class="btn btn-info btn-block">Create</div>
+                <input id="addTag" class="btn btn-info btn-block" value="Create" />
+              </div>
+              <div id="tagTip" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                    标签名不能为空
+                  </div>
+                </div>
               </div>
             </form>
         </div>
@@ -101,8 +108,8 @@
                   <td class="a-center ">
                     <input type="checkbox" class="flat" name="table_records">
                   </td>
-                  <td class=" ">{{ $tag->id }}</td>
-                  <td class=" ">{{ $tag->name }}</td>
+                  <td class="js-tag-id">{{ $tag->id }}</td>
+                  <td class="js-tag-name">{{ $tag->name }}</td>
                   <td class=" ">{{ $tag->created_at }}</td>
                   <td class=" ">{{ $tag->updated_at }}</td>
                   <td class=" last">
@@ -126,6 +133,39 @@
   <script type="text/javascript">
     $('#deleteAllSubmit').on('click', function() {
       $('#deleteModal').modal('hide');
+    });
+    // 加键盘控制提交
+    $('[name=tagname]').on('keydown', function(e) {
+      if (e.keyCode == 13) {
+        $('#addTag').trigger('click');
+      }
+    });
+    $('#addTag').on('click', function() {
+      var tagname = $('[name=tagname]').val();
+      if (tagname == '') {
+        $('#tagTip').modal('show');
+      }else {
+        $.post('/admin/tag', {
+          name: tagname,
+          _token: Laravel.csrfToken
+        })
+        .done(function(res) {
+          alert(res.msg);
+        })
+        .fail(function(res) {
+          if (res.status == 422) {
+            var responseText = $.parseJSON(res.responseText)
+            var firstError; for (firstError in responseText) break;
+            var msg = responseText[firstError];
+            alert(msg);
+          }else if (res.status == 500) {
+            alert(res.statusText);
+          }else {
+            alert('创建标签失败')
+          }
+        });
+        $('[name=tagname]').val('');
+      }
     });
   </script>
 @endsection

@@ -48,7 +48,7 @@ class TagController extends Controller
         $tag->save();
         $response = array(
             'status' => 'success',
-            'msg' => 'Setting created successfully',
+            'msg' => '标签创建成功啦啦啦～',
         );
         return $response;
     }
