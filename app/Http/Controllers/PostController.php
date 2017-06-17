@@ -148,8 +148,14 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
-        $post->delete();
-        Session::Flash('success', '删除成功');
-        return redirect()->route('post.index');
+        // 判断该文章的id的uid是否是该用户
+        if (Auth::id() == $post->uid) {
+            $post->delete();
+            Session::Flash('success', '删除标签成功');
+            return redirect()->route('post.index');
+        }else {
+            Session::Flash('fail', '你没有删除文章的权限');
+            return redirect()->route('post.index');
+        }
     }
 }

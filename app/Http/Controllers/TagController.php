@@ -19,9 +19,10 @@ class TagController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tags = Tag::orderBy('created_at', 'desc')->paginate(20);
+        $tags = Tag::where('name', 'like', '%'.$request->keywords.'%')
+                ->orderBy('created_at', 'desc')->paginate(20);
         return view('admin.tag')->with('tags', $tags);
     }
 
@@ -82,9 +83,16 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateTagRequest $request, $id)
     {
-        //
+        $tag = Tag::find($id);
+        $tag->name = $request->name;
+        $tag->save();
+        $response = array(
+            'status' => 'success',
+            'msg' => '标签更新成功啦啦啦～',
+        );
+        return $response;
     }
 
     /**
@@ -95,6 +103,12 @@ class TagController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tag = Tag::find($id);
+        $tag->delete();
+        $response = [
+            'status' => 'success',
+            'msg' => '删除成功'
+        ];
+        return $response;
     }
 }
