@@ -22,6 +22,17 @@
     <link href="{{ asset('vendors/gentelella/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="{{ asset('vendors/gentelella/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="{{ asset('vendors/gentelella/nprogress/nprogress.css') }}" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="{{ asset('vendors/gentelella/iCheck/skins/flat/green.css') }}" rel="stylesheet">
+    
+    <!-- bootstrap-progressbar -->
+    <link href="{{ asset('vendors/gentelella/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css') }}" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="{{ asset('vendors/gentelella/jqvmap/dist/jqvmap.min.css') }}" rel="stylesheet"/>
+    <!-- bootstrap-daterangepicker -->
+    <link href="{{ asset('vendors/gentelella/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
 
     <!-- Custom Theme Style -->
     <link href="{{ asset('vendors/gentelella/build/css/custom.min.css') }}" rel="stylesheet">
@@ -33,7 +44,7 @@
             <div class="col-md-3 left_col">
               <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
-                  <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>骡子窝</span></a>
+                  <a href="/" class="site_title"><i class="fa fa-paw"></i> <span>骡子窝</span></a>
                 </div>
 
                 <div class="clearfix"></div>
@@ -195,19 +206,47 @@
             </div>
         </div>
     </div>
-
+    
     <!-- jQuery -->
     <script src="{{ asset('vendors/gentelella/jquery/dist/jquery.min.js') }}"></script>
     <!-- Bootstrap -->
     <script src="{{ asset('vendors/gentelella/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     <!-- FastClick -->
     <script src="{{ asset('vendors/gentelella/fastclick/lib/fastclick.js') }}"></script>
+    <!-- NProgress -->
+    <script src="{{ asset('vendors/gentelella/nprogress/nprogress.js') }}"></script>
+    <!-- Chart.js -->
+    <script src="{{ asset('vendors/gentelella/Chart.js/dist/Chart.min.js') }}"></script>
+    <!-- gauge.js -->
+    <script src="{{ asset('vendors/gentelella/gauge.js/dist/gauge.min.js') }}"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="{{ asset('vendors/gentelella/bootstrap-progressbar/bootstrap-progressbar.min.js') }}"></script>
+    <!-- iCheck -->
+    <script src="{{ asset('vendors/gentelella/iCheck/icheck.min.js') }}"></script>
     <!-- Skycons -->
     <script src="{{ asset('vendors/gentelella/skycons/skycons.js') }}"></script>
+    <!-- Flot -->
+    <script src="{{ asset('vendors/gentelella/Flot/jquery.flot.js') }}"></script>
+    <script src="{{ asset('vendors/gentelella/Flot/jquery.flot.pie.js') }}"></script>
+    <script src="{{ asset('vendors/gentelella/Flot/jquery.flot.time.js') }}"></script>
+    <script src="{{ asset('vendors/gentelella/Flot/jquery.flot.stack.js') }}"></script>
+    <script src="{{ asset('vendors/gentelella/Flot/jquery.flot.resize.js') }}"></script>
+    <!-- Flot plugins -->
+    <script src="{{ asset('vendors/gentelella/flot.orderbars/js/jquery.flot.orderBars.js') }}"></script>
+    <script src="{{ asset('vendors/gentelella/flot-spline/js/jquery.flot.spline.min.js') }}"></script>
+    <script src="{{ asset('vendors/gentelella/flot.curvedlines/curvedLines.js') }}"></script>
+    <!-- DateJS -->
+    <script src="{{ asset('vendors/gentelella/DateJS/build/date.js') }}"></script>
+    <!-- JQVMap -->
+    <script src="{{ asset('vendors/gentelella/jqvmap/dist/jquery.vmap.js') }}"></script>
+    <script src="{{ asset('vendors/gentelella/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
+    <script src="{{ asset('vendors/gentelella/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="{{ asset('vendors/gentelella/moment/min/moment.min.js') }}"></script>
+    <script src="{{ asset('vendors/gentelella/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('vendors/gentelella/build/js/custom.min.js') }}"></script>
-
     @yield('scripts')
 	
   </body>

@@ -20,10 +20,7 @@
           <a href="/">主页</a>
         </li>
         <li @if (isset($pageType) && $pageType == 'about') class="active" @endif>
-          <a href="/about">关于我</a>
-        </li>
-        <li @if (isset($pageType) && $pageType == 'contact') class="active" @endif>
-          <a href="/contact">联系我</a>
+          <a href="/about">关于骡子窝主人</a>
         </li>
       </ul>
       <div class="collapse navbar-collapse" id="app-navbar-collapse">

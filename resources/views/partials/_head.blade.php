@@ -7,17 +7,19 @@
 
 <title>Terry @yield('title')</title>
 
+<link rel="shortcut icon" href="//or1edgicq.bkt.clouddn.com/fate.png?imageView2/1/w/50/h/50">
 <!-- Bootstrap -->
 <link rel="stylesheet" type="text/css" href="{{ mix('css/app.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ mix('css/base.css') }}">
 <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/highlight.js/9.10.0/styles/zenburn.min.css">
+@yield('stylesheets')
+
 <!-- Scripts -->
 <script>
     window.Laravel = {!! json_encode([
         'csrfToken' => csrf_token(),
     ]) !!};
 </script>
-@yield('stylesheets')
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

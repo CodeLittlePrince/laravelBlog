@@ -12,10 +12,9 @@
             <span class="createdAt">创建于 - {{ $post->created_at->format('Y年n月j日') }}</span>
           </div>
           <div>
-            <span class="badge">web前端</span>
-            <span class="badge">web后端</span>
-            <span class="badge">全栈</span>
-            <span class="badge">打酱油</span>
+            @foreach ($post->tags as $tag)
+              <span class="badge">{{ $tag->name }}</span>  
+            @endforeach
           </div>
           <h2 class="title">{{ $post->title }}</h2>
           <h3 class="desc">{{ $post->desc }}</h3>

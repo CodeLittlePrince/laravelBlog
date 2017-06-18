@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Post;
+use App\Tag;
 use Auth;
 use Session;
 
@@ -51,7 +52,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('post.create');
+        $tags = Tag::all();
+        return view('post.create')->with('tags', $tags);
     }
 
     /**
@@ -68,6 +70,7 @@ class PostController extends Controller
             'uid' => 'required|digits_between:1,11',
             'title' => 'required|max:50',
             'desc' => 'required|max:100',
+            'tags' => 'max:5',
             'content' => 'required',
         ));
         // store in the database
@@ -77,6 +80,12 @@ class PostController extends Controller
         $post->desc = $request->desc;
         $post->content = $request->content;
         $post->save();
+
+        // if (isset($request->tags)) { // 这里有问题，因为如果编辑删除所有的标签，数据库并不会删除
+        //     $post->tags()->sync($request->tags);
+        // }
+        $tags = $request->input('tags', []); // 设置默认值为数组
+        $post->tags()->sync($tags);
         // test session
         Session::Flash('success', '文章发布成功');
         // redirect to another page
@@ -92,8 +101,12 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
+        $tags = Tag::all();
         $isAuthor = $post->uid == Auth::id() ? true : false;
-        return view('post.show')->with('post', $post)->with('isAuthor', $isAuthor);
+        return view('post.show')
+            ->with('post', $post)
+            ->with('tags', $tags)
+            ->with('isAuthor', $isAuthor);
     }
 
     /**
@@ -105,8 +118,12 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
+        $defaultTags = $post->tags();
+        $tags = Tag::all();
         return view('post.create')
             ->with('post', $post)
+            ->with('defaultTags', $defaultTags)
+            ->with('tags', $tags)
             ->with('isEdit', true);
     }
 
@@ -124,6 +141,7 @@ class PostController extends Controller
             'uid' => 'required|digits_between:1,11',
             'title' => 'required|max:50',
             'desc' => 'required|max:100',
+            'tags' => 'max:5',
             'content' => 'required',
         ));
         //store the date to database
@@ -133,6 +151,9 @@ class PostController extends Controller
         $post->desc = $request->desc;
         $post->content = $request->content;
         $post->save();
+
+        $tags = $request->input('tags', []); // 设置默认值为数组
+        $post->tags()->sync($tags);
         //set flash session
         Session::Flash('success', '文章更新成功');
         //redirect with session
