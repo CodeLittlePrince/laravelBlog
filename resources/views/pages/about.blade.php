@@ -9,12 +9,12 @@
 				<div class="col-lg-9 col-md-9 col-sm-9">
 					<h2>关于我 <small>一般人我不告诉TA</small></h2>
 					<p class="lead text-justify">
-						(/ω＼*)作为骡子大总管，爱技术，爱学习，爱游戏，爱动漫，爱运动。做事努力，负责，谦虚。喜欢新事物，喜欢多挑战，对 技术以及创业充满渴望。迟早是社会的希望，祖国的栋梁!
+						(/ω＼*)作为骡子大总管，爱技术，爱学习，爱游戏，爱动漫，爱运动。做事努力，负责，谦虚。喜欢新事物，喜欢多挑战，对技术以及创业充满渴望。迟早是社会的希望，祖国的栋梁!
 					</p>
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-3">
 					<h2>
-						<img class="img-responsive" src="http://or1edgicq.bkt.clouddn.com/luozi.png?imageView2/1/w/130/h/157">
+						<img class="img-responsive pull-right" src="http://or1edgicq.bkt.clouddn.com/luozi.png?imageView2/1/w/130/h/157">
 					</h2>
 				</div>
 			</div>
@@ -38,7 +38,7 @@
 				</li>
 				<li>
 					<label>王者荣耀：</label>
-					<a href="return:;">骡子不会飞</a> <small>(钻石 (｡ゝω･)bﾞ)</small>
+					<a href="return:;">骡子不会灰</a> <small>(钻石 (｡ゝω･)bﾞ)</small>
 				</li>
 			</ul>
 			<h3>语言</h3>
@@ -53,7 +53,7 @@
 			<h3>教育以及工作经历</h3>
 			<ul>
 				<li>
-					<label >2012 - 2016：【本科：三亚学院/网络工程】</label>
+					<label >2012 - 2016：【本科：海南大学三亚学院/网络工程】</label>
 					<ul>
 						<li>大学期间担任电子研究社社长</li>
 						<li>理工学院辩论赛团队赛第一名</li>
@@ -79,7 +79,7 @@
 				<li>
 					<label>2016.3 - 至今：【实习+工作：半次元<a href="https://bcy.net" target="_blank"> bcy.net </a>】</label>
 					<ul>
-						<li>参与网站wap页面的重构，包括：样式、交互、rem化</li>
+						<li>参与网站wap页面的重构，包括：样式、交互、Rem化</li>
 						<li>负责网站wap页面的弹窗、走马灯组件的实现</li>
 						<li>负责网站web页面的重构，包括：样式、布局、交互。涉及网站的所有页面</li>
 						<li>
@@ -105,9 +105,10 @@
 						<li>
 							一些活动页的制作：
 							<ul>
-								<li>剑网三</li>	
-								<li>阴阳师</li>
-								<li>半次元萌战</li>
+								<li><a href="https://bcy.net/static/jw3cos2017intro" target="_blank">剑网三</a></li>	
+								<li><a href="https://bcy.net/static/yyscos2017intro" target="_blank">阴阳师</a></li>
+								<li><a href="https://bcy.net/moe2016/result" target="_blank">半次元萌战</a></li>
+								<li>奖学金</li>
 								<li>半次元COS大赛</li>
 								<li>等...</li>
 							</ul>
@@ -129,6 +130,8 @@
 					<li>Jquery</li>
 					<li>Juicer（类Ejs的前端模板）</li>
 					<li>Ejs</li>
+					<li>Seajs</li>
+					<li>Commonjs</li>
 				</ul>
 				<li><label>版本管理</label></li>
 				<ul>
@@ -150,6 +153,7 @@
 				<ul>
 					<li>操作系统：Mac</li>
 					<li>编辑器：Sublime/Atom</li>
+					<li>学习总结：Microsoft OneNote</li>
 				</ul>
 			</ul>
 		</div>

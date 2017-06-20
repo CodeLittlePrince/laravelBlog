@@ -9,7 +9,7 @@
 	<hr>
 	<div>
 		@foreach ($tags as $tag)
-			<span class="badge">{{ $tag->name }}</span>
+			<a href="/?keywords={{ $tag->name }}"><span class="badge">{{ $tag->name }}</span></a>
 		@endforeach
 	</div>
 
