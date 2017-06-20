@@ -19,7 +19,7 @@
             </div>
             <div>
               @foreach ($article->tags as $tag)
-                <a href="/?keywords={{ $tag->name }}">
+                <a href="/?tag={{ $tag->name }}">
                   <span class="badge">{{ $tag->name }}</span>
                 </a>
               @endforeach

@@ -11,7 +11,7 @@
           <div class="row">
               <form action="/admin/tag" method="get">
                 <div class="col-md-9 col-sm-9 col-xs-9">
-                  <input class="form-control" type="text" name="keywords" placeholder="输入标签名">
+                  <input class="form-control" type="text" name="tag" placeholder="输入标签名">
                 </div>
                 <div class="col-md-3 col-sm-3 col-xs-3">
                   <input class="btn btn-success btn-block" type="submit" value="查找" />

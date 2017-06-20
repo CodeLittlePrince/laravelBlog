@@ -22,7 +22,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('updated_at', 'desc')->paginate(5);
+        $posts = \DB::table('posts')
+                ->where('uid', '=', Auth::id())
+                ->orderBy('updated_at', 'desc')
+                ->paginate(20);
         foreach ($posts as $post) {
             // 当标题长度大于15，则截取
             // if (strlen($post->title) > 15) {
@@ -118,13 +121,19 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
-        $defaultTags = $post->tags();
-        $tags = Tag::all();
-        return view('post.create')
-            ->with('post', $post)
-            ->with('defaultTags', $defaultTags)
-            ->with('tags', $tags)
-            ->with('isEdit', true);
+        // 判断该文章的id的uid是否是该用户
+        if (Auth::id() == $post->uid) {
+            $defaultTags = $post->tags();
+            $tags = Tag::all();
+            return view('post.create')
+                ->with('post', $post)
+                ->with('defaultTags', $defaultTags)
+                ->with('tags', $tags)
+                ->with('isEdit', true);
+        }else {
+            Session::Flash('fail', '你没有删除文章的权限');
+            return redirect()->route('/');
+        }
     }
 
     /**
@@ -146,17 +155,22 @@ class PostController extends Controller
         ));
         //store the date to database
         $post = Post::find($id);
-        $post->uid = $request->uid;
-        $post->title = $request->title;
-        $post->desc = $request->desc;
-        $post->content = $request->content;
-        $post->save();
+        if (Auth::id() == $post->uid) {
+            $post->uid = $request->uid;
+            $post->title = $request->title;
+            $post->desc = $request->desc;
+            $post->content = $request->content;
+            $post->save();
 
-        $tags = $request->input('tags', []); // 设置默认值为数组
-        $post->tags()->sync($tags);
-        //set flash session
-        Session::Flash('success', '文章更新成功');
-        //redirect with session
+            $tags = $request->input('tags', []); // 设置默认值为数组
+            $post->tags()->sync($tags);
+            //set flash session
+            Session::Flash('success', '文章更新成功');
+            //redirect with session
+        }else {
+            Session::Flash('fail', '你没有删除文章的权限');
+        }
+        
         return redirect()->route('post.show', $id);
     }
 

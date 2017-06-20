@@ -21,7 +21,7 @@ class TagController extends Controller
      */
     public function index(Request $request)
     {
-        $tags = Tag::where('name', 'like', '%'.$request->keywords.'%')
+        $tags = Tag::where('name', 'like', '%'.$request->tag.'%')
                 ->orderBy('created_at', 'desc')->paginate(20);
         return view('admin.tag')->with('tags', $tags);
     }

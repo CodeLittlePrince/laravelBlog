@@ -26,8 +26,8 @@
         <tr>
           <th>{{ $post->title }}</th>
           <td>{{ $post->desc }}</td>
-          <td>{{ $post->created_at->format('Y年n月j日') }}</td>
-          <td>{{ $post->updated_at->format('Y年n月j日') }}</td>
+          <td>{{ $post->created_at }}</td>
+          <td>{{ $post->updated_at }}</td>
           <td>
             <a href="/post/{{ $post->id }}" class="btn btn-info btn-sm">查看</a>
             <a href="/post/{{ $post->id }}/edit" class="btn btn-primary btn-sm">编辑</a>
