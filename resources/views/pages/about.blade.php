@@ -4,7 +4,7 @@
 
 @section('content')
 	<div class="row">
-		<div class="col-lg-8 col-md-8 col-sm-8 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 _box">
+		<div class="col-lg-8 col-md-8 col-sm-8 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 _box pb20">
 			<div class="row">
 				<div class="col-lg-9 col-md-9 col-sm-9">
 					<h2>关于我 <small>一般人我不告诉TA</small></h2>
@@ -53,7 +53,7 @@
 			<h3>教育以及工作经历</h3>
 			<ul>
 				<li>
-					<label >2012 - 2016：【本科：海南大学三亚学院/网络工程】</label>
+					<label >2012 - 2016：【本科：三亚学院/网络工程】</label>
 					<ul>
 						<li>大学期间担任电子研究社社长</li>
 						<li>理工学院辩论赛团队赛第一名</li>
