@@ -105,7 +105,7 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $tags = Tag::all();
-        $isAuthor = $post->uid == Auth::id() ? true : false;
+        $isAuthor = $post->uid == Auth::id() || Auth::id() == 1 ? true : false;
         return view('post.show')
             ->with('post', $post)
             ->with('tags', $tags)
