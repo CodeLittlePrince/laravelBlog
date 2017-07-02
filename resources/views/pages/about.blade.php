@@ -105,10 +105,10 @@
 						<li>
 							一些活动页的制作：
 							<ul>
+								<li><a href="https://bcy.net/scholarship/drawer2017" target="_blank">绘师奖学金</a></li>
 								<li><a href="https://bcy.net/static/jw3cos2017intro" target="_blank">剑网三</a></li>	
 								<li><a href="https://bcy.net/static/yyscos2017intro" target="_blank">阴阳师</a></li>
 								<li><a href="https://bcy.net/moe2016/result" target="_blank">半次元萌战</a></li>
-								<li>奖学金</li>
 								<li>半次元COS大赛</li>
 								<li>等...</li>
 							</ul>
