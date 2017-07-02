@@ -25,5 +25,6 @@ Route::prefix('admin')->group(function(){
 	Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 	Route::get('/', 'AdminController@index')->name('admin.dashboard'); // 注意：这句最好在/admin/login这两句的后面，不然，每次调用/admin/login，路由都会call一次/admin
 	Route::resource('/tag', 'TagController');
+	Route::get('/article', 'AdminController@article');
 });
 

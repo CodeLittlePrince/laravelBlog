@@ -9,41 +9,12 @@
         </div>
         <div class="panel-body">
           <div class="row">
-              <form action="/admin/tag" method="get">
+              <form action="/admin/article" method="get">
                 <div class="col-md-9 col-sm-9 col-xs-9">
-                  <input class="form-control" type="text" name="tag" placeholder="输入标签名">
+                  <input class="form-control" type="text" name="keywords" placeholder="输入文章名">
                 </div>
                 <div class="col-md-3 col-sm-3 col-xs-3">
                   <input class="btn btn-success btn-block" type="submit" value="查找" />
-                </div>
-              </form>
-          </div>
-          
-          <div class="row">
-              <form>
-                <div class="col-md-9 col-sm-9 col-xs-9">
-                  <input class="form-control" type="text" name="tagname" placeholder="输入标签名">
-                </div>
-                <div class="col-md-3 col-sm-3 col-xs-3">
-                  <input id="addTag" class="btn btn-info btn-block" value="创建" />
-                </div>
-                <div class="modal fade" id="tagTip" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 1051">
-                  <div class="modal-dialog modal-sm" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h5 class="modal-title" id="exampleModalLabel">哎哟喂~</h5>
-                      </div>
-                      <div class="modal-body">
-                        标签名不能为空
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </form>
           </div>
@@ -55,7 +26,7 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="x_panel">
         <div class="x_title">
-          <h2>标签</h2>
+          <h2>文章</h2>
           <ul class="nav navbar-right panel_toolbox">
             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
             </li>
@@ -75,7 +46,8 @@
               <thead>
                 <tr class="headings">
                   <th class="column-title">ID </th>
-                  <th class="column-title">Name </th>
+                  <th class="column-title">Title </th>
+                  <th class="column-title">Desc </th>
                   <th class="column-title">Created at</th>
                   <th class="column-title">Updated at</th>
                   <th class="column-title no-link last"><span class="nobr">Action</span>
@@ -85,17 +57,19 @@
                   </th>
                 </tr>
               </thead>
-    
+
               <tbody>
-                @foreach ($tags as $tag)
+                @foreach ($articles as $post)
                   <tr class="even pointer">
-                    <td class="js-tag-id">{{ $tag->id }}</td>
-                    <td class="js-tag-name">{{ $tag->name }}</td>
-                    <td class=" ">{{ $tag->created_at }}</td>
-                    <td class=" ">{{ $tag->updated_at }}</td>
+                    <td >{{ $post->id }}</td>
+                    <td >{{ $post->title }}</td>
+                    <td >{{ $post->desc }}</td>
+                    <td class=" ">{{ $post->created_at }}</td>
+                    <td class=" ">{{ $post->updated_at }}</td>
                     <td class=" last">
-                      <div class="btn btn-xs btn-danger js-delete" data-tag-id="{{ $tag->id }}">删除</div>
-                      <div class="btn btn-xs btn-info js-edit" data-tag-id="{{ $tag->id }}" data-tag-name="{{ $tag->name }}">编辑</div>
+                    <a href="/post/{{ $post->id }}">
+                      <div class="btn btn-xs btn-success">查看</div>
+                    </a>
                     </td>
                   </tr>
                 @endforeach
@@ -124,15 +98,11 @@
               </tbody>
             </table>
             <div class="text-center">
-              {{ $tags->links() }}
+              {{ $articles->links() }}
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-@endsection
-
-@section('scripts')
-  <script src="{{ mix('js/admin/admin.js') }}"></script>
 @endsection

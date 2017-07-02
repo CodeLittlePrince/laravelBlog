@@ -70,7 +70,7 @@
                     <ul class="nav side-menu">
                       <li><a><i class="fa fa-table"></i> 表格 <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                          <li><a href="/admin/post">文章</a></li>
+                          <li><a href="/admin/article">文章</a></li>
                           <li><a href="/admin/tag">标签</a></li>
                         </ul>
                       </li>

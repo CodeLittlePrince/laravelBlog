@@ -184,7 +184,7 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         // 判断该文章的id的uid是否是该用户
-        if (Auth::id() == $post->uid) {
+        if (Auth::id() == $post->uid || Auth::id() == 1) {
             $post->delete();
             Session::Flash('success', '删除标签成功');
             return redirect()->route('post.index');
