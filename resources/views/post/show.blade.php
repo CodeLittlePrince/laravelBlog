@@ -8,8 +8,12 @@
   		<div class="_box card-detail-article">
         <div>
           <div class="time">
-            <span class="updatedAt">更新于 - {{ $post->updated_at->format('Y年n月j日') }}</span>
-            <span class="createdAt">创建于 - {{ $post->created_at->format('Y年n月j日') }}</span>
+            <div class="updatedAt">
+              更新于 - {{ $post->updated_at->format('Y年n月j日') }}
+            </div>
+            <div class="createdAt">
+              创建于 - {{ $post->created_at->format('Y年n月j日') }}
+            </div>
           </div>
           <div>
             @foreach ($post->tags as $tag)
@@ -17,6 +21,7 @@
             @endforeach
           </div>
           <h2 class="title">{{ $post->title }}</h2>
+          <div class="author">作者：<a href="/?author={{ $authorName }}">{{ $authorName }}</a></div>
           <h3 class="desc">{{ $post->desc }}</h3>
           <div class="content">{!! $post->content !!}</div>
         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\Tag;
+use App\User;
 use Illuminate\Http\Request;
 /**
  * Serve pages
@@ -18,16 +19,26 @@ class PagesController extends Controller
     {
         $tag = $request->tag;
         $keywords = $request->keywords;
+        $authorName = $request->authorName;
         $articles = null;
-        if (isset($keywords) && !isset($tag)) { // GET如果有关键字，但没有标签
+        if (isset($authorName)) {
+            $authorID = User::where('name', '=', $authorName)
+                        ->select('id')
+                        ->first()
+                        ->id;
+            $articles = Post::where('uid', '=', $authorID)
+                        ->orderBy('updated_at', 'DESC')
+                        ->paginate(10);
+        }else if (isset($keywords) && !isset($tag)) { // GET如果有关键字，但没有标签
             $articles = Post::where('title', 'LIKE', '%' . $keywords . '%')
                         ->orderBy('updated_at', 'DESC')->paginate(10);
         }else if (!isset($keywords) && isset($tag)) { // GET如果有标签，但没有关键字
             $tag_id = \DB::table('tags')
                         ->where('name', '=', $tag)
                         ->select('id')
-                        ->first();
-            $articles = Tag::find($tag_id->id)->posts()
+                        ->first()
+                        ->id;
+            $articles = Tag::find($tag_id)->posts()
                         ->orderBy('updated_at', 'DESC')
                         ->paginate(10);
                         // get()
@@ -52,10 +63,18 @@ class PagesController extends Controller
         }else {
             $articles = Post::orderBy('updated_at', 'DESC')->paginate(10);
         }
+        // 先获取所有用户，以免循环查找数据库
+        $users = User::all();
         foreach ($articles as $article) {
             // ======== 上面是原生，laravel其实提供了辅助方法 =========
             $article->content = str_limit($article->content, 300, '...');
             // ==============================================
+            if ($users->find($article->uid)) { // !!! 防止如果数据库中删除了这篇文章的用户，导致找不到名字出错
+                $name = $users->find($article->uid)->name;
+            }else {
+                $name = '无名';
+            }
+            $article['authorName'] = $name;
         }
         $tags = Tag::all();
 

@@ -25,6 +25,10 @@
               @endforeach
             </div>
             <h2 class="title">{{ $article->title }}</h2>
+            <div class="author">
+              作者：
+              <a href="/?authorName={{ $article->authorName }}">{{ $article->authorName }}</a>
+            </div>
             <h3 class="desc">{{ $article->desc }}</h3>
             <div class="content _box">{!! $article->content !!}</div>
           </div>

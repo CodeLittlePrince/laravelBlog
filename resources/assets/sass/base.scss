@@ -82,6 +82,15 @@ pre {
 		    white-space: nowrap;
 		    word-wrap: normal;
 		}
+		.author {
+			font-size: 20px;
+			a {
+				color: #26B99A;
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
 		.desc {
 			box-sizing: border-box;
 		    padding: 10px 20px;

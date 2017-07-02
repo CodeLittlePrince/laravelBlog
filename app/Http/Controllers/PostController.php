@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Post;
 use App\Tag;
+use App\User;
 use Auth;
 use Session;
 
@@ -106,9 +107,11 @@ class PostController extends Controller
         $post = Post::find($id);
         $tags = Tag::all();
         $isAuthor = $post->uid == Auth::id() || Auth::id() == 1 ? true : false;
+        $authorName = User::find($post->uid)->name;
         return view('post.show')
             ->with('post', $post)
             ->with('tags', $tags)
+            ->with('authorName', $authorName)
             ->with('isAuthor', $isAuthor);
     }
 
