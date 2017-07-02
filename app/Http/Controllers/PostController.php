@@ -134,7 +134,7 @@ class PostController extends Controller
                 ->with('tags', $tags)
                 ->with('isEdit', true);
         }else {
-            Session::Flash('fail', '你没有删除文章的权限');
+            Session::Flash('fail', '你没有编辑文章的权限');
             return redirect()->route('/');
         }
     }
@@ -158,7 +158,7 @@ class PostController extends Controller
         ));
         //store the date to database
         $post = Post::find($id);
-        if (Auth::id() == $post->uid) {
+        if (Auth::id() == $post->uid || Auth::id() == 1) {
             $post->uid = $request->uid;
             $post->title = $request->title;
             $post->desc = $request->desc;
@@ -171,7 +171,7 @@ class PostController extends Controller
             Session::Flash('success', '文章更新成功');
             //redirect with session
         }else {
-            Session::Flash('fail', '你没有删除文章的权限');
+            Session::Flash('fail', '你没有更新文章的权限');
         }
         
         return redirect()->route('post.show', $id);

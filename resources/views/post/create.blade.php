@@ -85,7 +85,7 @@
 						<input class="btn btn-primary form-control" type="button" value="发布">
 					@endif
 				</div>
-				<input type="hidden" name="uid" value="{{ Auth::user()->id }}">
+				<input type="hidden" name="uid" value="{{ $post->uid or Auth::user()->id }}">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			</form>
 		</div>
