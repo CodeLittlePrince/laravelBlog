@@ -4,7 +4,7 @@
 
 @section('content')
   <div class="row">
-  	<div class="col-xs-9">
+  	<div class="col-md-9 col-sm-12 col-xs-12">
   		<div class="_box card-detail-article">
         <div>
           <div class="time">
@@ -27,7 +27,7 @@
         </div>
       </div>
   	</div>
-  	<div class="col-xs-3">
+  	<div class="col-md-3 hidden-sm hidden-xs">
       @if ($isAuthor)
         <div class="well _box">
           <div class="row">

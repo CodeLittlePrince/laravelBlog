@@ -10,10 +10,10 @@
         <div class="panel-body">
           <div class="row">
               <form action="/admin/article" method="get">
-                <div class="col-md-9 col-sm-9 col-xs-9">
+                <div class="col-md-9 col-sm-12 col-xs-12">
                   <input class="form-control" type="text" name="keywords" placeholder="输入文章名">
                 </div>
-                <div class="col-md-3 col-sm-3 col-xs-3">
+                <div class="col-md-3 hidden-sm hidden-xs">
                   <input class="btn btn-success btn-block" type="submit" value="查找" />
                 </div>
               </form>

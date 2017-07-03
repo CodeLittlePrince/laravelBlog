@@ -9,7 +9,7 @@
 
 @section('content')
   <div class="row">
-    <div class="col-xs-9">
+    <div class="col-md-9 col-sm-12 col-xs-12">
       @foreach ($articles as $article)
         <div class="_box card-index-article">
           <div>
@@ -43,7 +43,7 @@
         {{ $articles->links() }}
       </div>
     </div>
-    <div class="col-xs-3">
+    <div class="col-md-3 hidden-sm hidden-xs">
       @include('pages/partials/_cardAside')
     </div>
   </div>
