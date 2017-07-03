@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title', '| create blog')
+@section('title', '| 创建文章')
 
 @section('stylesheets')
 	<link rel="stylesheet" type="text/css" href="{{ asset('vendors/select2/css/select2.min.css') }}">

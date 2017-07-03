@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title', '| post index')
+@section('title', '| 文章列表')
 
 @section('content')
   <div class="row">

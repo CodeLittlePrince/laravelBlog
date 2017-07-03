@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title', '| home')
+@section('title', '| 骡子窝')
 
 {{-- This section is for loading stylesheets --}}
 @section('stylesheets')
