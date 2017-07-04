@@ -104,6 +104,7 @@ class TagController extends Controller
     public function destroy($id)
     {
         $tag = Tag::find($id);
+        $tag->posts()->detach(); // 删除有外键的必须处理
         $tag->delete();
         $response = [
             'status' => 'success',

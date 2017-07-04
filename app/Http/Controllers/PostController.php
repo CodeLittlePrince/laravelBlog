@@ -190,9 +190,10 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::find($id);
         // 判断该文章的id的uid是否是该用户
+        $post = Post::find($id);
         if (Auth::id() == $post->uid || Auth::id() == 1) {
+            $post->tags()->detach(); // 删除有外键的必须处理
             $post->delete();
             Session::Flash('success', '删除标签成功');
             return redirect()->route('post.index');
