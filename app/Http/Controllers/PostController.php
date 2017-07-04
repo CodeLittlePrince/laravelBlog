@@ -107,7 +107,12 @@ class PostController extends Controller
         $post = Post::find($id);
         $tags = Tag::all();
         $isAuthor = $post->uid == Auth::id() || Auth::id() == 1 ? true : false;
-        $authorName = User::find($post->uid)->name;
+        $users = User::all();
+        if ($users->find($post->uid)) { // !!! 防止如果数据库中删除了这篇文章的用户，导致找不到名字出错
+            $authorName = $users->find($post->uid)->name;
+        }else {
+            $authorName = '无名';
+        }
         return view('post.show')
             ->with('post', $post)
             ->with('tags', $tags)

@@ -52,6 +52,6 @@
 {{-- This section is for loading scripts --}}
 @section('scripts')
   <script type="text/javascript">
-    console.log('welcome!');
+    console.log('欢迎来到英雄联盟!哦，不，骡子窝!');
   </script>
 @endsection

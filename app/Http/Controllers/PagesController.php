@@ -67,7 +67,8 @@ class PagesController extends Controller
         $users = User::all();
         foreach ($articles as $article) {
             // ======== 上面是原生，laravel其实提供了辅助方法 =========
-            $article->content = str_limit($article->content, 300, '...');
+            // $article->content = str_limit($article->content, '...');
+            // str_limit导致我的DOM被截掉了，导致HTML错误
             // ==============================================
             if ($users->find($article->uid)) { // !!! 防止如果数据库中删除了这篇文章的用户，导致找不到名字出错
                 $name = $users->find($article->uid)->name;
