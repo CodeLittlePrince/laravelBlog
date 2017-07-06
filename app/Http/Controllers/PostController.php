@@ -25,7 +25,7 @@ class PostController extends Controller
     {
         $posts = \DB::table('posts')
                 ->where('uid', '=', Auth::id())
-                ->orderBy('updated_at', 'desc')
+                ->orderBy('created_at', 'desc')
                 ->paginate(20);
         foreach ($posts as $post) {
             // 当标题长度大于15，则截取
