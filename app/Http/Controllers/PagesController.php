@@ -27,11 +27,11 @@ class PagesController extends Controller
                         ->first()
                         ->id;
             $articles = Post::where('uid', '=', $authorID)
-                        ->orderBy('updated_at', 'DESC')
+                        ->orderBy('created_at', 'DESC')
                         ->paginate(10);
         }else if (isset($keywords) && !isset($tag)) { // GET如果有关键字，但没有标签
             $articles = Post::where('title', 'LIKE', '%' . $keywords . '%')
-                        ->orderBy('updated_at', 'DESC')->paginate(10);
+                        ->orderBy('created_at', 'DESC')->paginate(10);
         }else if (!isset($keywords) && isset($tag)) { // GET如果有标签，但没有关键字
             $tag_id = \DB::table('tags')
                         ->where('name', '=', $tag)
@@ -39,7 +39,7 @@ class PagesController extends Controller
                         ->first()
                         ->id;
             $articles = Tag::find($tag_id)->posts()
-                        ->orderBy('updated_at', 'DESC')
+                        ->orderBy('created_at', 'DESC')
                         ->paginate(10);
                         // get()
                         // first()
@@ -58,10 +58,10 @@ class PagesController extends Controller
                         ->first();
             $articles = Tag::find($tag_id->id)->posts()
                         ->where('title', 'LIKE', '%' . $keywords . '%')
-                        ->orderBy('updated_at', 'DESC')
+                        ->orderBy('created_at', 'DESC')
                         ->paginate(10);
         }else {
-            $articles = Post::orderBy('updated_at', 'DESC')->paginate(10);
+            $articles = Post::orderBy('created_at', 'DESC')->paginate(10);
         }
         // 先获取所有用户，以免循环查找数据库
         $users = User::all();
