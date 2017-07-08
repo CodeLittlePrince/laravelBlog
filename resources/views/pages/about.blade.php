@@ -100,7 +100,7 @@
 							负责网站的视频作品发布的上线，原本使用HLS（HTTP Live Stream）的技术视频的播放功能，完成后，CTO为了视频防盗链的问题，采用了HTTP 206 Partial Content的方式来播放视频
 						</li>
 						<li>
-							负责评论楼中楼的上线，在首页、个人主页、圈子页、标签页的瀑布流，COS，绘画，写作，日常，讨论的Detail页面加上评论套评论的功能（首页瀑布流得登录后才有，请点这个COS的<a href="https://bcy.net/coser/detail/18760/614758" target="_blank"> Detail页面 </a>）
+							负责评论楼中楼的上线，在首页、个人主页、圈子页、标签页的瀑布流，COS，绘画，写作，日常，讨论的Detail页面加上评论套评论的功能（首页瀑布流得登录后才有;Detail请点这个COS的<a href="https://bcy.net/coser/detail/18760/614758" target="_blank"> Detail页面 </a>）
 						</li>
 						<li>
 							一些活动页的制作：
