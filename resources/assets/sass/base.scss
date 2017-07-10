@@ -109,6 +109,11 @@ pre {
 		    	max-width: 100%;
 		    	height: auto;
 		    }
+		    h1{
+		    	font-weight: 500;
+		    	border-bottom: 1px dashed #c1c1c1;
+		    	padding-bottom: 5px;
+		    }
 		}
 		blockquote {
 			border-left: 5px solid #2ab27b;
@@ -159,5 +164,10 @@ pre {
 	img {
 		max-width: 100%;
 		height: auto;
+	}
+	h1{
+		font-weight: 500;
+		border-bottom: 1px dashed #c1c1c1;
+		padding-bottom: 5px;
 	}
 }
