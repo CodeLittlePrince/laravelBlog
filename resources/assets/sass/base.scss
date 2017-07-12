@@ -134,6 +134,25 @@ pre {
 		}
 	}
 }
+@media (max-width: 768px) {
+	.card-index, .card-detail {
+		&-article {
+			padding-left: 15px;
+			padding-right: 15px;
+			.time {
+				font-size: 12px;
+			}
+			.desc {
+				padding-left: 15px;
+				padding-right: 15px;
+			}
+			.content {
+				padding-left: 5px;
+				padding-right: 5px;
+			}
+		}
+	}
+}
 .card-index {
 	&-article {
 		.content {
