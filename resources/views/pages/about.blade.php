@@ -34,7 +34,7 @@
 				</li>
 				<li>
 					<label>博客：</label>
-					<a href="https://luoziwo.com">luoziwo.com</a>
+					<a href="http://luoziwo.cn">luoziwo.cn</a>
 				</li>
 				<li>
 					<label>王者荣耀：</label>
