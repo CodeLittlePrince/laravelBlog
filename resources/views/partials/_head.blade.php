@@ -4,7 +4,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="renderer" content="webkit">
 <meta name="keywords" content="骡子窝,技术博客,前端,后端,web前端,web后端,前端教程,后端教程">
-<meta name="description" content="半次元是第一中文COS绘画小说社区，汇聚了包括Coser、绘师、写手等创作者在内的众多二次元同好，提供cosplay、绘画和小说创作发表、二次元同好交流等社群服务。网站共设cosplay、绘画、写作、漫展、话题等多个频道。">
+<meta name="description" content="骡子窝是一个前端技术博客。有前端，后端，阿里云，Webpack，React，Gulp，等各种前端技术，以及后端技术">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
