@@ -23,6 +23,16 @@
     window.Laravel = {!! json_encode([
         'csrfToken' => csrf_token(),
     ]) !!};
+    // 百度统计
+    <script>
+	    var _hmt = _hmt || [];
+	    (function() {
+	      var hm = document.createElement("script");
+	      hm.src = "https://hm.baidu.com/hm.js?261b54c7f0e1729e4667c6e3cfbd3540";
+	      var s = document.getElementsByTagName("script")[0]; 
+	      s.parentNode.insertBefore(hm, s);
+	    })();
+    </script>
 </script>
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
