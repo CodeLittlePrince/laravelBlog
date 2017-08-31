@@ -19,9 +19,11 @@
         <li @if (isset($pageType) && $pageType == 'index') class="active" @endif>
           <a href="/">主页</a>
         </li>
+        <!--
         <li @if (isset($pageType) && $pageType == 'about') class="active" @endif>
           <a href="/about">关于骡子窝主人</a>
         </li>
+        -->
       </ul>
       <div class="collapse navbar-collapse" id="app-navbar-collapse">
           <!-- Left Side Of Navbar -->
